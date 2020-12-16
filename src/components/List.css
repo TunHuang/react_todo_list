@@ -1,0 +1,16 @@
+.tasklist {
+  list-style-type: circle;
+}
+
+.tasklist li {
+  background-color: indigo;
+  color: white;
+  font-size: 26px;
+  padding: 12px;
+  border-radius: 8px;
+  margin: 14px;
+}
+
+.tasklist li p {
+  margin: 0;
+}
