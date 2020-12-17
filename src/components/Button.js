@@ -1,5 +1,8 @@
 import './Button.css';
 
-const Button = () => <button className="add-task">Add Task</button>;
+const Button = (props) => <button
+  className="add-task"
+  onClick={props.aufgabeHinzufuegen}
+>Add Task</button>;
 
 export default Button;

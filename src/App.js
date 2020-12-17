@@ -10,14 +10,20 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      aufgaben: [
-        'Gehege ausmisten',
-        'Schweine füttern',
-        'Gemüse einkaufen',
-        'Krallen schneiden',
-        'Heu auffüllen'
-      ]
+      aufgaben: [],
+      textInput: ''
     }
+    this.handleChange = this.handleChange.bind(this);
+    this.aufgabeHinzufuegen = this.aufgabeHinzufuegen.bind(this);
+  }
+  handleChange(event) {
+    this.setState({textInput: event.target.value});
+  }
+  aufgabeHinzufuegen() {
+    this.setState(state => ({
+      aufgaben: [...state.aufgaben, this.state.textInput],
+      textInput: ''
+    }));
   }
   render() {
     return (
@@ -25,8 +31,11 @@ class App extends React.Component {
         <Navbar />
         <Header />
         <section className="input-task">
-          <InputText />
-          <Button />
+          <InputText
+            handleChange={this.handleChange}
+            textInput={this.state.textInput}
+          />
+          <Button aufgabeHinzufuegen={this.aufgabeHinzufuegen}/>
         </section>
   
         <List aufgaben = {this.state.aufgaben}/>
