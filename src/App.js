@@ -19,11 +19,21 @@ class App extends React.Component {
   handleChange(event) {
     this.setState({textInput: event.target.value});
   }
-  aufgabeHinzufuegen() {
-    this.setState(state => ({
+  async aufgabeHinzufuegen() {
+    await this.setState(state => ({
       aufgaben: [...state.aufgaben, this.state.textInput],
       textInput: ''
     }));
+    const aufgabenstring = JSON.stringify(this.state.aufgaben);
+    localStorage.setItem('aufgaben', aufgabenstring);
+  }
+  componentDidMount() {
+    const aufgabenInStorage = localStorage.getItem('aufgaben');
+    if (aufgabenInStorage) {
+      this.setState({
+        aufgaben: JSON.parse(aufgabenInStorage)
+      })
+    }
   }
   render() {
     return (
