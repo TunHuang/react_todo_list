@@ -5,7 +5,7 @@ const InputText = (props) => <input
   name="task"
   id="task"
   placeholder="Write New Task"
-  value={props.textInput}
+  // value={props.textInput}
   onChange={props.handleChange}
 />;
 

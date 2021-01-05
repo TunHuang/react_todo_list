@@ -17,14 +17,33 @@ class App extends React.Component {
     this.aufgabeHinzufuegen = this.aufgabeHinzufuegen.bind(this);
   }
   handleChange(event) {
-    this.setState({textInput: event.target.value});
+    // this.setState({textInput: event.target.value});
   }
   aufgabeHinzufuegen() {
     this.setState(state => ({
-      aufgaben: [...state.aufgaben, this.state.textInput],
+      aufgaben: [...state.aufgaben, document.querySelector('input').value],
       textInput: ''
     }));
+    // const aufgabenstring = JSON.stringify(this.state.aufgaben);
+    // localStorage.setItem('aufgaben', aufgabenstring);
   }
+
+  componentDidUpdate() {
+    console.log("update passiert");
+    const aufgabenstring = JSON.stringify(this.state.aufgaben);
+    localStorage.setItem('aufgaben', aufgabenstring);
+  }
+
+  componentDidMount() {
+    console.log("gemountet");
+    let aufgabenInStorage = localStorage.getItem('aufgaben');
+    if (aufgabenInStorage) {
+      this.setState({
+        aufgaben: JSON.parse(aufgabenInStorage)
+      })
+    }
+  }
+
   render() {
     return (
       <div className="App">
