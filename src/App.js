@@ -15,6 +15,7 @@ class App extends React.Component {
     }
     this.handleChange = this.handleChange.bind(this);
     this.aufgabeHinzufuegen = this.aufgabeHinzufuegen.bind(this);
+    this.loescheEintrag = this.loescheEintrag.bind(this);
   }
   handleChange(event) {
     this.setState({textInput: event.target.value});
@@ -25,6 +26,11 @@ class App extends React.Component {
       textInput: ''
     }));
   }
+  loescheEintrag(event) {
+    const id = +event.target.parentElement.id.replace("eintrag", "");
+    const aufgabenNachLoeschen = this.state.aufgaben.filter((element, index) => index !== id);
+    this.setState({aufgaben: aufgabenNachLoeschen});
+  }
   componentDidMount() {
     const aufgabenInStorage = localStorage.getItem('aufgaben');
     if (aufgabenInStorage) {
@@ -34,7 +40,6 @@ class App extends React.Component {
     }
   }
   componentDidUpdate(prevProps, prevState) {
-    console.log(prevState, this.state);
     if (this.state.aufgaben !== prevState.aufgaben) {
       localStorage.setItem('aufgaben', JSON.stringify(this.state.aufgaben));
     }
@@ -52,7 +57,10 @@ class App extends React.Component {
           <Button aufgabeHinzufuegen={this.aufgabeHinzufuegen}/>
         </section>
   
-        <List aufgaben = {this.state.aufgaben}/>
+        <List
+          aufgaben = {this.state.aufgaben}
+          loescheEintrag = {this.loescheEintrag}
+        />
       </div>
     );
   }

@@ -4,9 +4,14 @@ import './List.css';
 const List = (props) => {
   return (
     <ul className="tasklist">
-      {props.aufgaben.map((aufgabe, index) => <Eintrag
-      aufgabe = {aufgabe}
-      key = {index}/>)}
+      {props.aufgaben.map((aufgabe, index) =>
+        <Eintrag
+          aufgabe = {aufgabe}
+          key = {index}
+          loescheEintrag = {props.loescheEintrag}
+          index = {index}
+        />
+      )}
     </ul>
   )
 };
