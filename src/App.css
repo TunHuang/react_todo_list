@@ -1,3 +1,9 @@
 .input-task {
   text-align: center;
 }
+
+body {
+  font-family: 'Gloria Hallelujah', cursive;
+  background-color: black;
+  color: white;
+}

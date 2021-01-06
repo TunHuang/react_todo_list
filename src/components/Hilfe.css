@@ -1,0 +1,9 @@
+.hilfeliste {
+  width: 60%;
+  margin: 50px auto 0 auto;
+  font-size: 24px;
+}
+
+.hilfeliste li {
+  margin: 16px 0;
+}

@@ -4,7 +4,14 @@ import Header from './components/Header';
 import InputText from './components/InputText';
 import List from './components/List';
 import Navbar from './components/Navbar';
+import NoMatch from './components/NoMatch';
 import React from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from 'react-router-dom';
+import Hilfe from './components/Hilfe';
 
 class App extends React.Component {
   constructor(props) {
@@ -50,22 +57,34 @@ class App extends React.Component {
   }
   render() {
     return (
-      <div className="App">
-        <Navbar />
-        <Header />
-        <section className="input-task">
-          <InputText
-            handleChange={this.handleChange}
-            textInput={this.state.textInput}
-          />
-          <Button aufgabeHinzufuegen={this.aufgabeHinzufuegen}/>
-        </section>
-  
-        <List
-          aufgaben = {this.state.aufgaben}
-          loescheEintrag = {this.loescheEintrag}
-        />
-      </div>
+      <Router>
+        <div className="App">
+          <Navbar />
+          <Header />
+          <Switch>
+            <Route path="/hilfe">
+              <Hilfe />
+            </Route>
+            <Route exact path="/">
+              <section className="input-task">
+                <InputText
+                  handleChange={this.handleChange}
+                  textInput={this.state.textInput}
+                />
+                <Button aufgabeHinzufuegen={this.aufgabeHinzufuegen}/>
+              </section>
+        
+              <List
+                aufgaben = {this.state.aufgaben}
+                loescheEintrag = {this.loescheEintrag}
+              />
+            </Route>
+            <Route path="*">
+              <NoMatch />
+            </Route>
+          </Switch>
+        </div>
+      </Router>
     );
   }
 };

@@ -1,9 +1,12 @@
 .tasklist {
-  list-style-type: circle;
+  list-style: none;
+  padding-left: 0;
+  width: 60%;
+  margin: 10px auto;
 }
 
 .tasklist li {
-  background-color: indigo;
+  /* background-color: indigo; */
   color: white;
   font-size: 26px;
   padding: 12px;
@@ -13,4 +16,26 @@
 
 .tasklist li p {
   margin: 0;
+}
+
+/* random background-colors */
+
+.tasklist .bgcolor-0 {
+  background-color: indigo;
+}
+
+.tasklist .bgcolor-1 {
+  background-color: olive;
+}
+
+.tasklist .bgcolor-2 {
+  background-color: firebrick;
+}
+
+.tasklist .bgcolor-3 {
+  background-color: royalblue;
+}
+
+.tasklist .bgcolor-4 {
+  background-color: seagreen;
 }
