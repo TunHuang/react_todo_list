@@ -28,8 +28,12 @@ class App extends React.Component {
   }
   loescheEintrag(event) {
     const id = +event.target.parentElement.id.replace("eintrag", "");
-    const aufgabenNachLoeschen = this.state.aufgaben.filter((element, index) => index !== id);
-    this.setState({aufgaben: aufgabenNachLoeschen});
+    // const aufgabenNachLoeschen = this.state.aufgaben.filter((element, index) => index !== id);
+    // this.setState({aufgaben: aufgabenNachLoeschen});
+    // this.setState(state => ({aufgaben: state.aufgaben.filter((element, index) => index !== id)}));
+    this.setState(state => {
+      return {aufgaben: state.aufgaben.filter((element, index) => index !== id)}
+    });
   }
   componentDidMount() {
     const aufgabenInStorage = localStorage.getItem('aufgaben');
