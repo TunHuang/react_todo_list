@@ -21,12 +21,13 @@ class InputTask extends React.Component {
           name="task"
           id="task"
           onChange={this.handleChange}
+          value={this.state.aufgabe}
         />
         <button
           className="add-task"
           onClick={() => {
             this.props.aufgabeHinzufuegen(this.state.aufgabe);
-            this.setState({name: ''});
+            this.setState({aufgabe: ''});
           }}
         >
           Add Task
