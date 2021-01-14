@@ -1,5 +1,7 @@
 import Eintrag from './Eintrag';
 import './List.css';
+import React from 'react';
+import { connect } from 'react-redux';
 
 const List = (props) => {
   return (
@@ -8,7 +10,6 @@ const List = (props) => {
         <Eintrag
           aufgabe = {aufgabe}
           key = {index}
-          loescheEintrag = {props.loescheEintrag}
           index = {index}
         />
       )}
@@ -16,4 +17,8 @@ const List = (props) => {
   )
 };
 
-export default List;
+const mapStateToProps = state => ({
+  aufgaben: state.aufgaben
+});
+
+export default connect(mapStateToProps, null)(List);
