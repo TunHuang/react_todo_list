@@ -2,6 +2,7 @@ import './Eintrag.css';
 import React from 'react';
 import { connect } from 'react-redux';
 import { loescheEintrag } from '../thunks/thunks';
+import PropTypes from 'prop-types';
 
 const Eintrag = props =>
   <li id={"eintrag" + props.index} className={"bgcolor-" + Math.floor(Math.random()*5)}>
@@ -15,6 +16,11 @@ const Eintrag = props =>
     >
       ✕
     </span>
-  </li>;
+  </li>
+;
+
+Eintrag.propTypes = {
+  loescheEintrag: PropTypes.func.isRequired
+};
 
 export default connect(null, {loescheEintrag})(Eintrag);

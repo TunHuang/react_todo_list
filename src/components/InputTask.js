@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { aufgabeHinzufuegen } from '../thunks/thunks';
+import PropTypes from 'prop-types';
 
 class InputTask extends React.Component {
   constructor(props) {
@@ -37,8 +38,8 @@ class InputTask extends React.Component {
   }
 };
 
-// const mapStateToProps = state => ({
-//   aufgaben: state.aufgaben
-// });
+InputTask.propTypes = {
+  aufgabeHinzufuegen: PropTypes.func.isRequired
+};
 
 export default connect(null, { aufgabeHinzufuegen })(InputTask);
