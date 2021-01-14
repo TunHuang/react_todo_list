@@ -1,0 +1,15 @@
+.input-task {
+  text-align: center;
+}
+
+.add-task {
+  font-size: large;
+  padding: 10px;
+  font-weight: 800;
+  margin-left: 20px;
+}
+
+#task {
+  padding: 10px 10px;
+  font-size: large;
+}

@@ -1,7 +1,5 @@
 import './App.css';
-// import Button from './components/Button';
 import Header from './components/Header';
-// import InputText from './components/InputText';
 import List from './components/List';
 import Navbar from './components/Navbar';
 import NoMatch from './components/NoMatch';
