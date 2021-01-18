@@ -1,6 +1,7 @@
 import {
   AUFGABE_HINZUFUEGEN,
-  LOESCHE_EINTRAG
+  LOESCHE_EINTRAG,
+  AUFGABEN_LADEN
 } from '../actions/actions';
 
 const initialState = {
@@ -16,6 +17,8 @@ export default function reducer (state = initialState, action) {
         ...state.aufgaben.slice(0, action.payload),
         ...state.aufgaben.slice(action.payload + 1)
       ]};
+    case AUFGABEN_LADEN:
+      return {...state, aufgaben: action.payload};
     default:
       return state;
   }
