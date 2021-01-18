@@ -4,25 +4,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-// const List = (props) => {
-//   return (
-//     <ul className="tasklist">
-//       {props.aufgaben.map((aufgabe, index) =>
-//         <Eintrag
-//           aufgabe={aufgabe}
-//           key={index}
-//           index={index}
-//         />
-//       )}
-//     </ul>
-//   )
-// };
-
 class List extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
   componentDidUpdate() {
     localStorage.setItem('todoaufgaben', JSON.stringify(this.props.aufgaben));
   }

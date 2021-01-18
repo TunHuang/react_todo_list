@@ -15,10 +15,6 @@ import { connect } from 'react-redux';
 import { aufgabenLaden } from './thunks/thunks';
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
   componentDidMount() {
     const aufgabenString = localStorage.getItem('todoaufgaben');
     if (aufgabenString) {
