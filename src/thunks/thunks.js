@@ -14,11 +14,9 @@ export const aufgabenLaden = aufgaben => dispatch => dispatch(actionAufgabenLade
 
 export const nummerTriviaHolen = nummer => dispatch => {
   const apiUrl = "http://numbersapi.com/" + nummer;
-  console.log("URL ist:", apiUrl);
   window.fetch(apiUrl).then(response => {
     response.text().then(trivia => {
-      console.log("Trivia ist:", trivia);
       dispatch(actionNummerTriviaHolen(trivia))
-    });
-  })
+    })
+  }).catch(error => dispatch(actionNummerTriviaFehler(error.toString())));
 };

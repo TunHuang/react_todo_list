@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { nummerTriviaHolen } from '../thunks/thunks'
+import { nummerTriviaHolen } from '../thunks/thunks';
+import './NumberTrivia.css';
 
 class NumberTrivia extends React.Component {
   constructor(props) {
