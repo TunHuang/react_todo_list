@@ -1,11 +1,16 @@
 import {
   AUFGABE_HINZUFUEGEN,
   LOESCHE_EINTRAG,
-  AUFGABEN_LADEN
+  AUFGABEN_LADEN,
+  NUMMERTRIVIA_HOLEN,
+  NUMMERTRIVIA_FEHLER
 } from '../actions/actions';
 
 const initialState = {
-  aufgaben: []
+  aufgaben: [],
+  trivia: '',
+  error: false,
+  cause: ''
 };
 
 export default function reducer (state = initialState, action) {
@@ -19,6 +24,20 @@ export default function reducer (state = initialState, action) {
       ]};
     case AUFGABEN_LADEN:
       return {...state, aufgaben: action.payload};
+    case NUMMERTRIVIA_HOLEN:
+      return {
+        ...state,
+        trivia: action.payload,
+        error: false,
+        cause: ''
+      };
+    case NUMMERTRIVIA_FEHLER:
+      return {
+        ...state,
+        trivia: '',
+        error: true,
+        cause: action.payload
+      }
     default:
       return state;
   }

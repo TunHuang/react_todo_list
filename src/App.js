@@ -13,6 +13,7 @@ import InputTask from './components/InputTask';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { aufgabenLaden } from './thunks/thunks';
+import NumberTrivia from './components/NumberTrivia';
 
 class App extends React.Component {
   componentDidMount() {
@@ -34,6 +35,9 @@ class App extends React.Component {
               <Route exact path="/">
                 <InputTask />
                 <List />
+              </Route>
+              <Route path="/trivia">
+                <NumberTrivia />
               </Route>
               <Route path="*">
                 <NoMatch />
