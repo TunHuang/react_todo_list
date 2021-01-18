@@ -13,6 +13,9 @@ import Hilfe from './components/Hilfe';
 import { Provider } from 'react-redux';
 import store from './store';
 import InputTask from './components/InputTask';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { aufgabenLaden } from './thunks/thunks';
 
 // class App extends React.Component {
 //   constructor(props) {
@@ -92,31 +95,71 @@ import InputTask from './components/InputTask';
 
 const App = props => {
   return (
-  <Router>
-    <Provider store={store}>
-      <div className="App">
-        <Navbar />
-        <Header />
-        <Switch>
-          <Route path="/hilfe">
-            <Hilfe />
-          </Route>
-          <Route exact path="/">
-            {/* <section className="input-task">
-              <InputText />
-              <Button />
-            </section> */}
-            <InputTask />
-            <List />
-          </Route>
-          <Route path="*">
-            <NoMatch />
-          </Route>
-        </Switch>
-      </div>
-    </Provider>
-  </Router>
+    <Router>
+      <Provider store={store}>
+        <div className="App">
+          <Navbar />
+          <Header />
+          <Switch>
+            <Route path="/hilfe">
+              <Hilfe />
+            </Route>
+            <Route exact path="/">
+              <InputTask />
+              <List />
+            </Route>
+            <Route path="*">
+              <NoMatch />
+            </Route>
+          </Switch>
+        </div>
+      </Provider>
+    </Router>
   )
-}
+};
+
+// class App extends React.Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = {};
+//   }
+//   componentDidMount() {
+//     const aufgabenString = localStorage.getItem('todoaufgaben');
+//     if (aufgabenString) {
+//       const aufgabenArray = JSON.parse(aufgabenString);
+//       this.props.aufgabenLaden(aufgabenArray);
+//     }
+//   }
+//   render() {
+//     return (
+//       <Router>
+//         <Provider store={store}>
+//           <div className="App">
+//             <Navbar />
+//             <Header />
+//             <Switch>
+//               <Route path="/hilfe">
+//                 <Hilfe />
+//               </Route>
+//               <Route exact path="/">
+//                 <InputTask />
+//                 <List />
+//               </Route>
+//               <Route path="*">
+//                 <NoMatch />
+//               </Route>
+//             </Switch>
+//           </div>
+//         </Provider>
+//       </Router>
+//     )
+//   }
+// };
+
+App.propTypes = {
+  aufgabenLaden: PropTypes.func.isRequired
+};
+
+// export default connect(null, { aufgabenLaden })(App);
 
 export default App;
