@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { nummerTriviaHolen } from '../thunks/thunks';
+import { nummerTriviaHolen } from '../../thunks/thunks';
 import './NumberTrivia.css';
 import PropTypes from 'prop-types';
 

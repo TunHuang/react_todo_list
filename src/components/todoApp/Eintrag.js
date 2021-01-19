@@ -1,7 +1,7 @@
 import './Eintrag.css';
 import React from 'react';
 import { connect } from 'react-redux';
-import { loescheEintrag } from '../thunks/thunks';
+import { loescheEintrag } from '../../thunks/thunks';
 import PropTypes from 'prop-types';
 
 const Eintrag = props =>

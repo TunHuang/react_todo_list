@@ -1,19 +1,19 @@
 import './App.css';
-import Header from './components/Header';
-import List from './components/List';
-import Navbar from './components/Navbar';
-import NoMatch from './components/NoMatch';
+import Header from './components/todoApp/Header';
+import List from './components/todoApp/List';
+import Navbar from './components/page/Navbar';
+import NoMatch from './components/page/NoMatch';
 import React from 'react';
 import {
   Switch,
   Route
 } from 'react-router-dom';
-import Hilfe from './components/Hilfe';
-import InputTask from './components/InputTask';
+import Hilfe from './components/page/Hilfe';
+import InputTask from './components/todoApp/InputTask';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { aufgabenLaden } from './thunks/thunks';
-import NumberTrivia from './components/NumberTrivia';
+import NumberTrivia from './components/numberTrivia/NumberTrivia';
 
 class App extends React.Component {
   componentDidMount() {

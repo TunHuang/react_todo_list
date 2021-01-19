@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { aufgabeHinzufuegen } from '../thunks/thunks';
+import { aufgabeHinzufuegen } from '../../thunks/thunks';
 import PropTypes from 'prop-types';
 import './InputTask.css';
 
