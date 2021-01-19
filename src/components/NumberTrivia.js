@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { nummerTriviaHolen } from '../thunks/thunks';
 import './NumberTrivia.css';
+import PropTypes from 'prop-types';
 
 class NumberTrivia extends React.Component {
   constructor(props) {
@@ -17,6 +18,7 @@ class NumberTrivia extends React.Component {
   render() {
     return (
       <section className="number-trivia">
+        <h1>Nummer Trivia</h1>
         <input
           type="text"
           name="number-input"
@@ -39,10 +41,16 @@ class NumberTrivia extends React.Component {
   }
 };
 
+NumberTrivia.propTypes = {
+  trivia: PropTypes.string.isRequired,
+  error: PropTypes.bool.isRequired,
+  cause: PropTypes.string.isRequired
+};
+
 const MapStateToProps = state => ({
-  trivia: state.trivia,
-  error: state.error,
-  cause: state.cause
+  trivia: state.trivias.trivia,
+  error: state.trivias.error,
+  cause: state.trivias.cause
 });
 
 export default connect(MapStateToProps, {nummerTriviaHolen})(NumberTrivia);

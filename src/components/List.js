@@ -28,7 +28,7 @@ List.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  aufgaben: state.aufgaben
+  aufgaben: state.todos.aufgaben
 });
 
 export default connect(mapStateToProps, null)(List);

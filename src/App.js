@@ -27,12 +27,12 @@ class App extends React.Component {
     return (
           <div className="App">
             <Navbar />
-            <Header />
             <Switch>
               <Route path="/hilfe">
                 <Hilfe />
               </Route>
               <Route exact path="/">
+                <Header />
                 <InputTask />
                 <List />
               </Route>
