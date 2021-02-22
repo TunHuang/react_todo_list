@@ -1,7 +1,8 @@
 import {
   AUFGABE_HINZUFUEGEN,
   LOESCHE_EINTRAG,
-  AUFGABEN_LADEN
+  AUFGABEN_LADEN,
+  FETCH_TASKLIST
 } from '../actions/types';
 
 const initialState = {
@@ -18,6 +19,8 @@ export default function todoReducer (state = initialState, action) {
         ...state.aufgaben.slice(action.payload + 1)
       ]};
     case AUFGABEN_LADEN:
+      return {...state, aufgaben: action.payload};
+    case FETCH_TASKLIST:
       return {...state, aufgaben: action.payload};
     default:
       return state;

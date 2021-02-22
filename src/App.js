@@ -12,16 +12,14 @@ import Hilfe from './components/page/Hilfe';
 import InputTask from './components/todoApp/InputTask';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { aufgabenLaden } from './thunks/thunks';
+// import { aufgabenLaden } from './thunks/thunks';
+import { fetchTaskList } from './thunks/thunks';
 import NumberTrivia from './components/numberTrivia/NumberTrivia';
 
 class App extends React.Component {
   componentDidMount() {
-    const aufgabenString = localStorage.getItem('todoaufgaben');
-    if (aufgabenString) {
-      const aufgabenArray = JSON.parse(aufgabenString);
-      this.props.aufgabenLaden(aufgabenArray);
-    }
+    console.log("komme ins componentDidMount");
+    this.props.fetchTaskList();
   }
   render() {
     return (
@@ -49,7 +47,7 @@ class App extends React.Component {
 };
 
 App.propTypes = {
-  aufgabenLaden: PropTypes.func.isRequired
+  fetchTaskList: PropTypes.func.isRequired
 };
 
-export default connect(null, { aufgabenLaden })(App);
+export default connect(null, { fetchTaskList })(App);

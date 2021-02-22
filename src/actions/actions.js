@@ -1,8 +1,11 @@
-import { AUFGABE_HINZUFUEGEN,
+import {
+  AUFGABE_HINZUFUEGEN,
   LOESCHE_EINTRAG,
   AUFGABEN_LADEN,
   NUMMERTRIVIA_HOLEN,
-  NUMMERTRIVIA_FEHLER } from './types';
+  NUMMERTRIVIA_FEHLER,
+  FETCH_TASKLIST
+} from './types';
 
 export const actionAufgabeHinzufuegen = aufgabe => ({
   type: AUFGABE_HINZUFUEGEN,
@@ -27,4 +30,9 @@ export const actionNummerTriviaHolen = trivia => ({
 export const actionNummerTriviaFehler = fehler => ({
   type: NUMMERTRIVIA_FEHLER,
   payload: fehler
+});
+
+export const actionFetchTaskList = taskList => ({
+  type: FETCH_TASKLIST,
+  payload: taskList
 });
