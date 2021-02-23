@@ -11,9 +11,10 @@ class List extends React.Component {
   render() {
     return (
       <ul className="tasklist">
-        {this.props.aufgaben.map((aufgabe, index) =>
+        {/* Im Array sind nun Objekte, daraus wird task geholt */}
+        {this.props.aufgaben.map((objekt, index) =>
           <Eintrag
-            aufgabe={aufgabe}
+            aufgabe={objekt.task}
             key={index}
             index={index}
           />

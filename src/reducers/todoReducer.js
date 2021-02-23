@@ -21,9 +21,9 @@ export default function todoReducer (state = initialState, action) {
     case AUFGABEN_LADEN:
       return {...state, aufgaben: action.payload};
     case FETCH_TASKLIST:
-      const aufgaben = action.payload.map(element => element.task);
-      console.log("array aus aufgaben: ", aufgaben);
-      return {...state, aufgaben};
+      // hole nur Tasks aus den Objekten im Array
+      // const aufgaben = action.payload.map(element => element.task);
+      return {...state, aufgaben: action.payload};
     default:
       return state;
   }
