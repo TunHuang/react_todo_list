@@ -5,9 +5,9 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 class List extends React.Component {
-  componentDidUpdate() {
-    localStorage.setItem('todoaufgaben', JSON.stringify(this.props.aufgaben));
-  }
+  // componentDidUpdate() {
+  //   localStorage.setItem('todoaufgaben', JSON.stringify(this.props.aufgaben));
+  // }
   render() {
     return (
       <ul className="tasklist">
