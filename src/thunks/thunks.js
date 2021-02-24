@@ -9,10 +9,11 @@ import {
 
 // export const aufgabeHinzufuegen = aufgabe => dispatch => dispatch(actionAufgabeHinzufuegen(aufgabe));
 
-export const aufgabeHinzufuegen = aufgabe => dispatch => {
+export const aufgabeHinzufuegen = (aufgabe, deadline) => dispatch => {
   const url = 'http://localhost:3000/tasks/';
   const body = {
     task: aufgabe,
+    deadline,
     completed: false,
     userId: 'testId'
   };

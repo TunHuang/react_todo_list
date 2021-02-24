@@ -8,12 +8,17 @@ class InputTask extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      aufgabe: ''
+      aufgabe: '',
+      deadline: ''
     };
-    this.handleChange = this.handleChange.bind(this);
+    this.handleChangeAufgabe = this.handleChangeAufgabe.bind(this);
+    this.handleChangeDeadline = this.handleChangeDeadline.bind(this);
   }
-  handleChange(event) {
-    this.setState({aufgabe: event.target.value});
+  handleChangeAufgabe(event) {
+    this.setState({ aufgabe: event.target.value });
+  }
+  handleChangeDeadline(event) {
+    this.setState({ deadline: event.target.value });
   }
   render() {
     return (
@@ -22,14 +27,31 @@ class InputTask extends React.Component {
           type="text"
           name="task"
           id="task"
-          onChange={this.handleChange}
+          placeholder="Write a new task"
+          onChange={this.handleChangeAufgabe}
           value={this.state.aufgabe}
+        />
+        <input
+          type="date"
+          name="deadline"
+          id="deadline"
+          onChange={this.handleChangeDeadline}
+          value={this.state.deadline}
         />
         <button
           className="add-task"
           onClick={() => {
-            this.props.aufgabeHinzufuegen(this.state.aufgabe);
-            this.setState({aufgabe: ''});
+            if (!this.state.aufgabe) {
+              alert('Trage eine Aufgabe ein!');
+            } else if (!this.state.deadline) {
+              alert('Gib ein Datum an!');
+            } else {
+              this.props.aufgabeHinzufuegen(this.state.aufgabe, this.state.deadline);
+              this.setState({
+                aufgabe: '',
+                deadline: ''
+              });
+            }
           }}
         >
           Add Task
