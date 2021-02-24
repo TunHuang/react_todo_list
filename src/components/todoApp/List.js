@@ -17,6 +17,7 @@ class List extends React.Component {
             aufgabe={objekt.task}
             key={index}
             index={index}
+            id={objekt._id}
           />
         )}
       </ul>

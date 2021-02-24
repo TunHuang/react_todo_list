@@ -10,8 +10,8 @@ const Eintrag = props =>
     <span
       className="delete-sign"
       onClick={event => {
-        const id = +event.target.parentElement.id.replace("eintrag", "");
-        props.loescheEintrag(id);
+        // const index = +event.target.parentElement.id.replace("eintrag", "");
+        props.loescheEintrag(props.index, props.id);
       }}
     >
       ✕
