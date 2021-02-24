@@ -4,7 +4,8 @@ import {
   // actionAufgabenLaden,
   actionNummerTriviaHolen,
   actionNummerTriviaFehler,
-  actionFetchTaskList
+  actionFetchTaskList,
+  actionErledigtSetzen
 } from '../actions/actions';
 
 // export const aufgabeHinzufuegen = aufgabe => dispatch => dispatch(actionAufgabeHinzufuegen(aufgabe));
@@ -40,7 +41,7 @@ export const loescheEintrag = (index, id) => dispatch => {
     if (res.deletedCount !== 1) {
       throw new Error('Auf Server wurde keine Aufgabe gelöscht');
     }
-    dispatch(actionLoescheEintrag(index))
+    dispatch(actionLoescheEintrag(index));
   })
   .catch(err => console.log(err))
 };
@@ -60,3 +61,5 @@ export const fetchTaskList = () => dispatch => window.fetch('http://localhost:30
 .then(res => res.json())
 .then(taskList => dispatch(actionFetchTaskList(taskList)))
 .catch(err => console.log(err));
+
+export const erledigtSetzen = index => dispatch => dispatch(actionErledigtSetzen(index));

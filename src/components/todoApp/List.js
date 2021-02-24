@@ -15,6 +15,8 @@ class List extends React.Component {
         {this.props.aufgaben.map((objekt, index) =>
           <Eintrag
             aufgabe={objekt.task}
+            deadline={objekt.deadline}
+            completed={objekt.completed}
             key={index}
             index={index}
             id={objekt._id}

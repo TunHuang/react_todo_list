@@ -4,7 +4,8 @@ import {
   AUFGABEN_LADEN,
   NUMMERTRIVIA_HOLEN,
   NUMMERTRIVIA_FEHLER,
-  FETCH_TASKLIST
+  FETCH_TASKLIST,
+  ERLEDIGT_SETZEN
 } from './types';
 
 export const actionAufgabeHinzufuegen = aufgabe => ({
@@ -35,4 +36,9 @@ export const actionNummerTriviaFehler = fehler => ({
 export const actionFetchTaskList = taskList => ({
   type: FETCH_TASKLIST,
   payload: taskList
+});
+
+export const actionErledigtSetzen = index => ({
+  type: ERLEDIGT_SETZEN,
+  payload: index
 });
