@@ -62,4 +62,18 @@ export const fetchTaskList = () => dispatch => window.fetch('http://localhost:30
 .then(taskList => dispatch(actionFetchTaskList(taskList)))
 .catch(err => console.log(err));
 
-export const erledigtSetzen = index => dispatch => dispatch(actionErledigtSetzen(index));
+export const erledigtSetzen = (id, isCompleted, index) => dispatch => {
+  const url = 'http://localhost:3000/tasks/' + id;
+  const body = { completed: isCompleted };
+  const bodyJson = JSON.stringify(body);
+  window.fetch(url, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: bodyJson
+  })
+  .then(res => res.json())
+  .then(res => dispatch(actionErledigtSetzen(index)))
+  .catch(err => console.log(err))
+};

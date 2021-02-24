@@ -5,7 +5,10 @@ import { loescheEintrag, erledigtSetzen } from '../../thunks/thunks';
 import PropTypes from 'prop-types';
 
 const Eintrag = props => {
+  // hook für den lokalen State
   const [isCompleted, setIsCompleted] = useState(false);
+  // isCompleted setzen für den anfänglichen State, wenn das Component geladen wird
+  useEffect(() => setIsCompleted(props.completed), [props.completed]);
   return (
     <li id={"eintrag" + props.index} className={"bgcolor-" + Math.floor(Math.random() * 5)}>
       {props.aufgabe}<br />
@@ -16,8 +19,8 @@ const Eintrag = props => {
         id="completed"
         checked={isCompleted}
         onClick={() => {
+          props.erledigtSetzen(props.id, !isCompleted, props.index);
           setIsCompleted(!isCompleted);
-          props.erledigtSetzen(props.index);
         }}
       />
       <span
