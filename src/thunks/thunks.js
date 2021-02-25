@@ -8,10 +8,11 @@ import {
   actionErledigtSetzen
 } from '../actions/actions';
 
+const URL = 'https://todo-backend-exercise.herokuapp.com/';
+
 // export const aufgabeHinzufuegen = aufgabe => dispatch => dispatch(actionAufgabeHinzufuegen(aufgabe));
 
 export const aufgabeHinzufuegen = (aufgabe, deadline) => dispatch => {
-  const url = 'http://localhost:3000/tasks/';
   const body = {
     task: aufgabe,
     deadline,
@@ -19,7 +20,7 @@ export const aufgabeHinzufuegen = (aufgabe, deadline) => dispatch => {
     userId: 'testId'
   };
   const bodyJson = JSON.stringify(body);
-  window.fetch(url, {
+  window.fetch(URL + 'tasks/', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -32,8 +33,7 @@ export const aufgabeHinzufuegen = (aufgabe, deadline) => dispatch => {
 };
 
 export const loescheEintrag = (index, id) => dispatch => {
-  const url = 'http://localhost:3000/tasks/' + id;
-  window.fetch(url, {
+  window.fetch(URL + 'tasks/' + id, {
     method: 'DELETE'
   })
   .then(res => res.json())
@@ -57,16 +57,15 @@ export const nummerTriviaHolen = nummer => dispatch => {
   }).catch(error => dispatch(actionNummerTriviaFehler(error.toString())));
 };
 
-export const fetchTaskList = () => dispatch => window.fetch('http://localhost:3000/tasks/')
+export const fetchTaskList = () => dispatch => window.fetch(URL + 'tasks/')
 .then(res => res.json())
 .then(taskList => dispatch(actionFetchTaskList(taskList)))
 .catch(err => console.log(err));
 
 export const erledigtSetzen = (id, isCompleted, index) => dispatch => {
-  const url = 'http://localhost:3000/tasks/' + id;
   const body = { completed: isCompleted };
   const bodyJson = JSON.stringify(body);
-  window.fetch(url, {
+  window.fetch(URL + 'tasks/' + id, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json'
