@@ -3,3 +3,11 @@
   font-weight: bold;
   cursor: pointer;
 }
+
+.erledigt-check {
+  float: right;
+}
+
+#completed {
+  transform: scale(2);
+}

@@ -9,20 +9,12 @@ const Eintrag = props => {
   const [isCompleted, setIsCompleted] = useState(false);
   // isCompleted setzen für den anfänglichen State, wenn das Component geladen wird
   useEffect(() => setIsCompleted(props.completed), [props.completed]);
+  const deadlineDate = props.deadline;
+  console.log(deadlineDate);
+  console.log(typeof deadlineDate);
   return (
     <li id={"eintrag" + props.index} className={"bgcolor-" + Math.floor(Math.random() * 5)}>
-      {props.aufgabe}<br />
-    Zu erledigen bis {props.deadline}
-      <input
-        type="checkbox"
-        name="completed"
-        id="completed"
-        checked={isCompleted}
-        onChange={() => {
-          props.erledigtSetzen(props.id, !isCompleted, props.index);
-          setIsCompleted(!isCompleted);
-        }}
-      />
+      {props.aufgabe}
       <span
         className="delete-sign"
         onClick={event => {
@@ -31,7 +23,23 @@ const Eintrag = props => {
         }}
       >
         ✕
-    </span>
+      </span>
+      <br />
+      Zu erledigen bis {deadlineDate.slice(0, 10)}
+      <div className="erledigt-check">
+        Ist erledigt?
+        {' '}
+        <input
+          type="checkbox"
+          name="completed"
+          id="completed"
+          checked={isCompleted}
+          onChange={() => {
+            props.erledigtSetzen(props.id, !isCompleted, props.index);
+            setIsCompleted(!isCompleted);
+          }}
+        />
+      </div>
     </li>
   )
 };
