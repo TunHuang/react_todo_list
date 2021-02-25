@@ -18,7 +18,7 @@ const Eintrag = props => {
         name="completed"
         id="completed"
         checked={isCompleted}
-        onClick={() => {
+        onChange={() => {
           props.erledigtSetzen(props.id, !isCompleted, props.index);
           setIsCompleted(!isCompleted);
         }}
