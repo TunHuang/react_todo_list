@@ -49,7 +49,7 @@ export const loescheEintrag = (index, id) => dispatch => {
 // export const aufgabenLaden = aufgaben => dispatch => dispatch(actionAufgabenLaden(aufgaben));
 
 export const nummerTriviaHolen = nummer => dispatch => {
-  const apiUrl = "https://numbersapi.com/" + nummer;
+  const apiUrl = "https://cors-anywhere.herokuapp.com/http://numbersapi.com/" + nummer;
   window.fetch(apiUrl).then(response => {
     response.text().then(trivia => {
       dispatch(actionNummerTriviaHolen(trivia))
